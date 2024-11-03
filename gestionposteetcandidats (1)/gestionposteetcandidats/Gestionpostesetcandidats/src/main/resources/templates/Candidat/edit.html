@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Candidat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Modifier le Candidat</h1>
+    <form th:action="@{/candidats/update}" method="post" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
+        <input type="hidden" th:value="${candidat.id}" name="id"/>
+
+        <!-- Nom -->
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" th:value="${candidat.nom}" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" th:value="${candidat.email}" required>
+        </div>
+
+        <!-- CV -->
+        <div class="form-group">
+            <label for="cv">CV (PDF)</label>
+            <input type="file" class="form-control-file" id="cv" name="cv" accept=".pdf">
+            <small class="form-text text-muted">Téléchargez un nouveau CV pour le mettre à jour.</small>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Mettre à jour</button>
+            <a th:href="@{/candidats}" class="btn btn-secondary ml-2">Annuler</a>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

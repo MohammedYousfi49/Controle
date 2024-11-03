@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gestion des Recrutements</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Gestion Recrutements</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/postes}">Liste des Postes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/candidats}">Liste des Candidats</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main content -->
+<div class="container mt-5">
+    <h2 class="text-center">Bienvenue dans le Système de Gestion des Recrutements</h2>
+    <p class="text-center">Utilisez la barre de navigation pour gérer les postes et les candidats.</p>
+</div>
+</body>
+</html>

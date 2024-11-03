@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Candidats</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h3 class="text-center">Liste des Candidats</h3>
+
+    <!-- Bouton pour ajouter un candidat -->
+    <div class="text-right mb-3">
+        <a th:href="@{/candidatures}" class="btn btn-success">Ajouter un Candidat</a>
+    </div>
+
+    <!-- Table des Candidats -->
+    <table class="table table-striped mt-4">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>CV</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="candidat : ${candidats}">
+            <td th:text="${candidat.nom}"></td>
+            <td th:text="${candidat.email}"></td>
+            <td>
+                <a th:href="@{/candidats/downloadCv/{id}(id=${candidat.id})}" class="btn btn-info btn-sm">Télécharger CV</a>
+            </td>
+            <td>
+                <!-- Boutons d'actions pour chaque candidat -->
+                <a th:href="@{/candidats/edit/{id}(id=${candidat.id})}" class="btn btn-primary btn-sm">Modifier</a>
+                <a th:href="@{/candidats/delete/{id}(id=${candidat.id})}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce candidat ?');">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
